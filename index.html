@@ -11,17 +11,19 @@
     <main>
       <h1>short-url</h1>
 
-      <form id="short-url-form">
+      <form id="form">
         <label>
-          link
-          <input name="link" type="url">
+          url
+          <input id="url" name="url" type="url" required>
         </label>
         <button>shorten</button>
       </form>
 
-      <div id="short-url-result">
+      <div id="result">
       </div>
+
+      <pre id="debug"></pre>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
