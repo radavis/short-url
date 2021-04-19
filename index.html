@@ -10,8 +10,17 @@
   <body>
     <main>
       <h1>short-url</h1>
-      <p>Your content, here...</p>
-      <p><code>console.log("Hello, World!");</code></p>
+
+      <form id="short-url-form">
+        <label>
+          link
+          <input name="link" type="url">
+        </label>
+        <button>shorten</button>
+      </form>
+
+      <div id="short-url-result">
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
