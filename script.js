@@ -27,7 +27,6 @@ form.addEventListener("submit", event => {
     return response.json();
   })
   .then(json => {
-    console.log(json);
     result.innerHTML = json.link;
     debug.innerHTML = JSON.stringify(json, null, 2);
   })

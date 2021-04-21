@@ -8,19 +8,15 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <main>
-      <h1>short-url</h1>
-
+    <main class="center stack">
       <form id="form">
-        <label>
-          url
-          <input id="url" name="url" type="url" required>
-        </label>
-        <button>shorten</button>
+        <h1>short-url</h1>
+        <label for="url">url</label>
+        <input id="url" name="url" type="url" required>
+        <button >shorten</button>
       </form>
 
-      <div id="result">
-      </div>
+      <div id="result"></div>
 
       <pre id="debug"></pre>
     </main>

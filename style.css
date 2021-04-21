@@ -1,9 +1,146 @@
+/* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Courier+Prime&display=swap");
 
-html {
-  font-family: "Lato", serif;
+:root {
+  --font-family-plain: "Lato", serif;
+  --font-family-mono: "Courier Prime", monospace;
 }
 
-code, pre {
-  font-family: "Courier Prime", monospace;
+html { font-family: var(--font-family-plain); }
+code, pre { font-family: var(--font-family-mono); }
+
+/* color */
+:root {
+  --color-black: #050505;
+  --color-white: #fafafa;
+  --color-grey: grey;
+  --color-light-grey: #ddd;
+  /* assign font color and background color */
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+/* inherit color from parent elements */
+* {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px solid black;
+}
+
+/* modular scale (based on line-height) */
+/* https://every-layout.dev/rudiments/modular-scale/#custom-properties */
+:root {
+  --line-height: 1.5; /* adjust to 3 or 4.5 to experiment */
+  line-height: var(--line-height);
+  --s-5: calc(var(--s-4) / var(--line-height));
+  --s-4: calc(var(--s-3) / var(--line-height));
+  --s-3: calc(var(--s-2) / var(--line-height));
+  --s-2: calc(var(--s-1) / var(--line-height));
+  --s-1: calc(var(--s0) / var(--line-height));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--line-height));
+  --s2: calc(var(--s1) * var(--line-height));
+  --s3: calc(var(--s2) * var(--line-height));
+  --s4: calc(var(--s3) * var(--line-height));
+  --s5: calc(var(--s4) * var(--line-height));
+  /* font-size: var(--s0); */
+}
+
+/* scale content (based on viewport width) */
+/* https://every-layout.dev/rudiments/units/#viewport-units */
+:root { font-size: calc(var(--s0) + 0.5vw); }
+
+/* set content area of boxes to include border and padding */
+*, *:before, *:after { box-sizing: border-box; }
+
+/* enforce a maximum line measure */
+/* https://every-layout.dev/rudiments/axioms/#a-universal-value */
+:root { --line-measure: 64ch; }
+* { max-width: var(--line-measure); }
+html, body, div, header, main, nav, footer { max-width: none; }
+
+/* layouts */
+/* insert margin between .stack child elements */
+.stack > * + * {
+  margin-top: var(--s0);
+}
+
+/* https://every-layout.dev/layouts/center */
+.center {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--line-measure);
+}
+
+/* styles */
+main { padding: var(--s-1); }
+
+h1 { font-size: var(--s2); }
+
+form > * + * {
+  margin-top: var(--s-2);
+}
+
+label {
+  font-weight: 700;
+}
+
+form > * {
+  display: block;
+}
+
+input {
+  border: var(--s-5) solid var(--color-black);
+  box-shadow: inset var(--s-5) var(--s-5) var(--color-light-grey);
+  width: 100%;
+  height: var(--s1);
+  padding-left: var(--s-4);
+  padding-right: var(--s-4);
+}
+
+input:focus, button:focus {
+  outline: var(--s-5) solid var(--color-grey);
+}
+
+/* button inspired by https://getbase.org/ */
+button {
+  display: inline-block;
+  border: var(--s-5) solid var(--color-black);
+  box-shadow: var(--s-4) var(--s-4) 0 0 var(--color-black);
+  height: var(--s1);
+  padding: var(--s-4) var(--s-2);
+  margin-right: var(--s0);
+  font-family: var(--font-family-mono);
+  text-decoration: none;
+  transition: all 0.1s;
+}
+
+button:hover {
+  background-color: var(--color-light-grey);
+}
+
+button:active {
+  box-shadow: 0 0 0 0 var(--color-black);
+  transform: translate(var(--s-4),var(--s-4));
+}
+
+#debug {
+  background-color: var(--color-light-grey);
+  display: none; /* remove line to debug */
+}
+
+#debug:empty {
+  display: none;
+}
+
+/* utilities */
+.display\:block {
+  display: block !important;
 }
