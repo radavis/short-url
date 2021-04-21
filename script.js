@@ -1,4 +1,4 @@
-const BITLY_API_ACCESS_TOKEN = "your-access-token-here";
+const BITLY_API_ACCESS_TOKEN = "69efc9185d7b886ed624b42c53dc72ef1275d802";
 // note: I was unable to create a bitly access token with a social media login.
 // Create a bitly account with an email and password.
 
