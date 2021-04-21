@@ -15,3 +15,7 @@ $ python3 -m http.server
 Then, visit [localhost:8000](http://localhost:8000).
 
 Replace the bitly API token in `script.js` with your own.
+
+## demo
+
+Visit the [demo](https://radavis.github.io/short-url/index.html), hosted on GitHub Pages.
